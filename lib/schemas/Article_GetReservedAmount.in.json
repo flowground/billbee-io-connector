@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "required": true,
+            "type": "string"
+        },
+        "lookupBy": {
+            "required": false,
+            "type": "string"
+        },
+        "stockId": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        }
+    }
+}

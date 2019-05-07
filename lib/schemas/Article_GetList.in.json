@@ -1,0 +1,20 @@
+{
+    "type": "object",
+    "properties": {
+        "page": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "pageSize": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "minCreatedAt": {
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+        }
+    }
+}

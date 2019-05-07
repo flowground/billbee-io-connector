@@ -1,0 +1,474 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "BasicAttributes": {
+                    "items": {
+                        "properties": {
+                            "LanguageCode": {
+                                "type": "string"
+                            },
+                            "Text": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "BillOfMaterial": {
+                    "items": {
+                        "properties": {
+                            "Amount": {
+                                "format": "double",
+                                "type": "number"
+                            },
+                            "ArticleId": {
+                                "format": "int32",
+                                "type": "integer"
+                            },
+                            "SKU": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "Category1": {
+                    "properties": {
+                        "Id": {
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "Name": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Category2": {
+                    "properties": {
+                        "Id": {
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "Name": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Category3": {
+                    "properties": {
+                        "Id": {
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "Name": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Condition": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "CostPrice": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "CountryOfOrigin": {
+                    "type": "string"
+                },
+                "CustomFields": {
+                    "items": {
+                        "properties": {
+                            "ArticleId": {
+                                "format": "int32",
+                                "type": "integer"
+                            },
+                            "Definition": {
+                                "properties": {
+                                    "Configuration": {
+                                        "type": "object"
+                                    },
+                                    "Id": {
+                                        "format": "int32",
+                                        "type": "integer"
+                                    },
+                                    "IsNullable": {
+                                        "type": "boolean"
+                                    },
+                                    "Name": {
+                                        "type": "string"
+                                    },
+                                    "Type": {
+                                        "enum": [
+                                            0,
+                                            1,
+                                            2,
+                                            3
+                                        ],
+                                        "format": "int32",
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "DefinitionId": {
+                                "format": "int32",
+                                "type": "integer"
+                            },
+                            "Id": {
+                                "format": "int32",
+                                "type": "integer"
+                            },
+                            "Value": {
+                                "type": "object"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "DeliveryTime": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Description": {
+                    "items": {
+                        "properties": {
+                            "LanguageCode": {
+                                "type": "string"
+                            },
+                            "Text": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "EAN": {
+                    "type": "string"
+                },
+                "ExportDescription": {
+                    "type": "string"
+                },
+                "HeightCm": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "Id": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Images": {
+                    "items": {
+                        "properties": {
+                            "ArticleId": {
+                                "format": "int32",
+                                "type": "integer"
+                            },
+                            "Id": {
+                                "format": "int32",
+                                "type": "integer"
+                            },
+                            "IsDefault": {
+                                "type": "boolean"
+                            },
+                            "Position": {
+                                "format": "int32",
+                                "type": "integer"
+                            },
+                            "ThumbPathExt": {
+                                "type": "string"
+                            },
+                            "ThumbUrl": {
+                                "type": "string"
+                            },
+                            "Url": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "InvoiceText": {
+                    "items": {
+                        "properties": {
+                            "LanguageCode": {
+                                "type": "string"
+                            },
+                            "Text": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "IsCustomizable": {
+                    "type": "boolean"
+                },
+                "IsDigital": {
+                    "type": "boolean"
+                },
+                "LengthCm": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "LowStock": {
+                    "readOnly": true,
+                    "type": "boolean"
+                },
+                "Manufacturer": {
+                    "type": "string"
+                },
+                "Materials": {
+                    "items": {
+                        "properties": {
+                            "LanguageCode": {
+                                "type": "string"
+                            },
+                            "Text": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "Occasion": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Price": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "Recipient": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "SKU": {
+                    "type": "string"
+                },
+                "ShippingProductId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "ShortDescription": {
+                    "items": {
+                        "properties": {
+                            "LanguageCode": {
+                                "type": "string"
+                            },
+                            "Text": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "SoldAmount": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "SoldAmountLast30Days": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "SoldSumGross": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "SoldSumGrossLast30Days": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "SoldSumNet": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "SoldSumNetLast30Days": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "Sources": {
+                    "items": {
+                        "properties": {
+                            "ApiAccountId": {
+                                "format": "int32",
+                                "type": "integer"
+                            },
+                            "ApiAccountName": {
+                                "type": "string"
+                            },
+                            "Custom": {
+                                "type": "object"
+                            },
+                            "ExportFactor": {
+                                "format": "double",
+                                "type": "number"
+                            },
+                            "Id": {
+                                "format": "int32",
+                                "type": "integer"
+                            },
+                            "Source": {
+                                "type": "string"
+                            },
+                            "SourceId": {
+                                "type": "string"
+                            },
+                            "StockSyncInactive": {
+                                "type": "boolean"
+                            },
+                            "StockSyncMax": {
+                                "format": "double",
+                                "type": "number"
+                            },
+                            "StockSyncMin": {
+                                "format": "double",
+                                "type": "number"
+                            },
+                            "UnitsPerItem": {
+                                "format": "double",
+                                "type": "number"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "StockCode": {
+                    "type": "string"
+                },
+                "StockCurrent": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "StockDesired": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "StockReduceItemsPerSale": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "StockWarning": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "Stocks": {
+                    "items": {
+                        "properties": {
+                            "Name": {
+                                "type": "string"
+                            },
+                            "StockCode": {
+                                "type": "string"
+                            },
+                            "StockCurrent": {
+                                "format": "double",
+                                "type": "number"
+                            },
+                            "StockDesired": {
+                                "format": "double",
+                                "type": "number"
+                            },
+                            "StockId": {
+                                "format": "int32",
+                                "type": "integer"
+                            },
+                            "StockWarning": {
+                                "format": "double",
+                                "type": "number"
+                            },
+                            "UnfulfilledAmount": {
+                                "format": "double",
+                                "type": "number"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "Tags": {
+                    "items": {
+                        "properties": {
+                            "LanguageCode": {
+                                "type": "string"
+                            },
+                            "Text": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "TaricNumber": {
+                    "type": "string"
+                },
+                "Title": {
+                    "items": {
+                        "properties": {
+                            "LanguageCode": {
+                                "type": "string"
+                            },
+                            "Text": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "Type": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Unit": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "UnitsPerItem": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "Vat1Rate": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "Vat2Rate": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "VatIndex": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Weight": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "WeightNet": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "WidthCm": {
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

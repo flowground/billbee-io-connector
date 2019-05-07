@@ -1,0 +1,24 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "BillbeeId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Sku": {
+                    "type": "string"
+                },
+                "StockCode": {
+                    "type": "string"
+                },
+                "StockId": {
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

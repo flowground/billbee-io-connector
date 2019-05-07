@@ -1,0 +1,107 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "Address": {
+                    "properties": {
+                        "AddressAddition": {
+                            "type": "string"
+                        },
+                        "AddressType": {
+                            "enum": [
+                                1,
+                                2
+                            ],
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "City": {
+                            "type": "string"
+                        },
+                        "Company": {
+                            "type": "string"
+                        },
+                        "CountryCode": {
+                            "type": "string"
+                        },
+                        "CustomerId": {
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "Email": {
+                            "type": "string"
+                        },
+                        "Fax": {
+                            "type": "string"
+                        },
+                        "FirstName": {
+                            "type": "string"
+                        },
+                        "Housenumber": {
+                            "type": "string"
+                        },
+                        "Id": {
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "LastName": {
+                            "type": "string"
+                        },
+                        "Name2": {
+                            "type": "string"
+                        },
+                        "State": {
+                            "type": "string"
+                        },
+                        "Street": {
+                            "type": "string"
+                        },
+                        "Tel1": {
+                            "type": "string"
+                        },
+                        "Tel2": {
+                            "type": "string"
+                        },
+                        "Zip": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Email": {
+                    "type": "string"
+                },
+                "Id": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "LanguageId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "Number": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "PriceGroupId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Tel1": {
+                    "type": "string"
+                },
+                "Tel2": {
+                    "type": "string"
+                },
+                "VatId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

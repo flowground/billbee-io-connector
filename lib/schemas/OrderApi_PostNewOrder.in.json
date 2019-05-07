@@ -1,0 +1,927 @@
+{
+    "type": "object",
+    "properties": {
+        "shopId": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "requestBody": {
+            "description": "A class that represents the Billbee data model of a single order",
+            "properties": {
+                "AcceptLossOfReturnRight": {
+                    "description": "Customer accepts loss due to withdrawal",
+                    "type": "boolean"
+                },
+                "AdjustmentCost": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "AdjustmentReason": {
+                    "type": "string"
+                },
+                "BillBeeOrderId": {
+                    "description": "The Order.Id from the Billbee database",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "BillBeeParentOrderId": {
+                    "description": "The Id of the parent order in the Billbee database",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Buyer": {
+                    "properties": {
+                        "BillbeeShopId": {
+                            "description": "The Billbee internal id of the shop connection",
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "BillbeeShopName": {
+                            "description": "The name of shop connection in Billbee",
+                            "type": "string"
+                        },
+                        "Email": {
+                            "description": "The email address of this customer",
+                            "type": "string"
+                        },
+                        "FirstName": {
+                            "description": "The first name of this customer",
+                            "type": "string"
+                        },
+                        "FullName": {
+                            "description": "The full name (\"firstname lastname\") of this customer",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "Id": {
+                            "description": "The Billbee internal id of this customer",
+                            "type": "string"
+                        },
+                        "LastName": {
+                            "description": "The last name of this customer",
+                            "type": "string"
+                        },
+                        "Nick": {
+                            "description": "The nick name (if available) from the original system",
+                            "type": "string"
+                        },
+                        "Platform": {
+                            "description": "The name of the platform from which this customer originated",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Comments": {
+                    "description": "All messages / comments of the order",
+                    "items": {
+                        "properties": {
+                            "Created": {
+                                "format": "date-time",
+                                "type": "string"
+                            },
+                            "FromCustomer": {
+                                "type": "boolean"
+                            },
+                            "Id": {
+                                "format": "int32",
+                                "type": "integer"
+                            },
+                            "Name": {
+                                "type": "string"
+                            },
+                            "Text": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "ConfirmedAt": {
+                    "description": "The date on which the order was confirmed",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "CreatedAt": {
+                    "description": "The date on which the order was created",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "Currency": {
+                    "description": "The three letter currency code.",
+                    "type": "string"
+                },
+                "CustomInvoiceNote": {
+                    "description": "An optional multiline text which is printed on the invoice",
+                    "type": "string"
+                },
+                "Customer": {
+                    "description": "The Customer object connected with the order",
+                    "properties": {
+                        "Email": {
+                            "type": "string"
+                        },
+                        "Id": {
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "LanguageId": {
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "Number": {
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "PriceGroupId": {
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "Tel1": {
+                            "type": "string"
+                        },
+                        "Tel2": {
+                            "type": "string"
+                        },
+                        "VatId": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "CustomerNumber": {
+                    "description": "The customer number (not to be confused with the id of the customer)",
+                    "type": "string"
+                },
+                "DeliverySourceCountryCode": {
+                    "description": "An optional Country ISO2 Code of the country where order is shipped from (FBA)",
+                    "type": "string"
+                },
+                "DistributionCenter": {
+                    "description": "An optional code for the distribution center delivering this order",
+                    "type": "string"
+                },
+                "Id": {
+                    "description": "Id of the order in the external system (marketplace)",
+                    "type": "string"
+                },
+                "InvoiceAddress": {
+                    "description": "The billing address",
+                    "properties": {
+                        "BillbeeId": {
+                            "description": "The Billbee internal ID of the address record",
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "City": {
+                            "description": "The city",
+                            "type": "string"
+                        },
+                        "Comment": {
+                            "description": "A internal comment to this address",
+                            "type": "string"
+                        },
+                        "Company": {
+                            "description": "The company name",
+                            "type": "string"
+                        },
+                        "Country": {
+                            "description": "The name of the country",
+                            "type": "string"
+                        },
+                        "CountryISO2": {
+                            "description": "The 2-letter country code",
+                            "type": "string"
+                        },
+                        "Email": {
+                            "description": "The email address",
+                            "type": "string"
+                        },
+                        "FirstName": {
+                            "description": "The first name",
+                            "type": "string"
+                        },
+                        "HouseNumber": {
+                            "description": "The house number",
+                            "type": "string"
+                        },
+                        "Id": {
+                            "description": "The id of the address in the external system",
+                            "type": "string"
+                        },
+                        "LastName": {
+                            "description": "The last name",
+                            "type": "string"
+                        },
+                        "Line2": {
+                            "description": "The second address line",
+                            "type": "string"
+                        },
+                        "Line3": {
+                            "description": "The third address line",
+                            "type": "string"
+                        },
+                        "NameAddition": {
+                            "description": "A addition to the address (e.g. Apartment 2, Back door)",
+                            "type": "string"
+                        },
+                        "Phone": {
+                            "description": "The phone number",
+                            "type": "string"
+                        },
+                        "Salutation": {
+                            "description": "The salutation",
+                            "enum": [
+                                0,
+                                1,
+                                2,
+                                3,
+                                4
+                            ],
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "State": {
+                            "description": "The name of the state",
+                            "type": "string"
+                        },
+                        "Street": {
+                            "description": "The street excl. the housenumber",
+                            "type": "string"
+                        },
+                        "Title": {
+                            "description": "An internal identifier for this address",
+                            "type": "string"
+                        },
+                        "Zip": {
+                            "description": "The postal code",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "InvoiceDate": {
+                    "description": "The date on which the invoice was created",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "InvoiceNumber": {
+                    "description": "The invoice number",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "InvoiceNumberPostfix": {
+                    "description": "The postfix of the invoice number",
+                    "type": "string"
+                },
+                "InvoiceNumberPrefix": {
+                    "description": "The prefix of the invoice number",
+                    "type": "string"
+                },
+                "IsCancelationFor": {
+                    "description": "An optional Order Id (externalid) for an order if this is a cancel order (shopify only at the moment)",
+                    "type": "string"
+                },
+                "LanguageCode": {
+                    "description": "The two-letter language code of the customer",
+                    "type": "string"
+                },
+                "OrderItems": {
+                    "description": "The list of items purchased like shirt, pant, toys etc",
+                    "items": {
+                        "properties": {
+                            "Attributes": {
+                                "description": "A list of product attributes for this position",
+                                "items": {
+                                    "properties": {
+                                        "Id": {
+                                            "description": "The internal id of this attribute",
+                                            "type": "string"
+                                        },
+                                        "Name": {
+                                            "description": "The attribute name. E.g. color",
+                                            "type": "string"
+                                        },
+                                        "Price": {
+                                            "format": "double",
+                                            "type": "number"
+                                        },
+                                        "Value": {
+                                            "description": "The attribute value. E.g. red",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "type": "array"
+                            },
+                            "BillbeeId": {
+                                "description": "The billbee id of this item",
+                                "format": "int32",
+                                "type": "integer"
+                            },
+                            "Discount": {
+                                "description": "Sets the discount in percent",
+                                "format": "double",
+                                "type": "number"
+                            },
+                            "DontAdjustStock": {
+                                "description": "If true, the import of this order won't adjust the stock level at billbee.",
+                                "type": "boolean"
+                            },
+                            "GetPriceFromArticleIfAny": {
+                                "description": "If true, the price will be overwritten by the known article price in billbee if available",
+                                "type": "boolean"
+                            },
+                            "IsCoupon": {
+                                "description": "Determines if it is a coupon, which is interpreted as tax-free payment",
+                                "type": "boolean"
+                            },
+                            "Product": {
+                                "description": "The sold product",
+                                "properties": {
+                                    "BillbeeId": {
+                                        "description": "The Billbee internal id of the linked product",
+                                        "format": "int32",
+                                        "type": "integer"
+                                    },
+                                    "CountryOfOrigin": {
+                                        "description": "The country where this article was made",
+                                        "type": "string"
+                                    },
+                                    "EAN": {
+                                        "description": "The EAN / GTIN of this product",
+                                        "type": "string"
+                                    },
+                                    "Id": {
+                                        "description": "The id of this product in the external system",
+                                        "type": "string"
+                                    },
+                                    "Images": {
+                                        "description": "The images of this product",
+                                        "items": {
+                                            "properties": {
+                                                "ExternalId": {
+                                                    "description": "The id of this image from the original system",
+                                                    "type": "string"
+                                                },
+                                                "IsDefaultImage": {
+                                                    "description": "True if the image is / should be the default image",
+                                                    "type": "boolean"
+                                                },
+                                                "Position": {
+                                                    "description": "The order of this image",
+                                                    "format": "int32",
+                                                    "type": "integer"
+                                                },
+                                                "Url": {
+                                                    "description": "The url to the image",
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "type": "array"
+                                    },
+                                    "IsDigital": {
+                                        "description": "True if the product is a digital good (download etc.), false if not",
+                                        "type": "boolean"
+                                    },
+                                    "OldId": {
+                                        "description": "This is for migration scenarios when the internal id of a product changes\r\nI.E. Etsy when switching to the new inventory management, the ids for variants will change.",
+                                        "type": "string"
+                                    },
+                                    "PlatformData": {
+                                        "description": "Optional platform specific Data as serialized JSON Object for the product",
+                                        "type": "string"
+                                    },
+                                    "SKU": {
+                                        "description": "The SKU of this product",
+                                        "type": "string"
+                                    },
+                                    "SkuOrId": {
+                                        "description": "The SKU of this product or the id if the SKU is empty",
+                                        "readOnly": true,
+                                        "type": "string"
+                                    },
+                                    "TARICCode": {
+                                        "description": "The TARIC code",
+                                        "type": "string"
+                                    },
+                                    "Title": {
+                                        "description": "The name of this product",
+                                        "type": "string"
+                                    },
+                                    "Weight": {
+                                        "description": "Weight of one item in gram",
+                                        "format": "int32",
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "Quantity": {
+                                "description": "The sold quantity",
+                                "format": "double",
+                                "type": "number"
+                            },
+                            "SerialNumber": {
+                                "description": "Contains the used serial number",
+                                "type": "string"
+                            },
+                            "ShippingProfileId": {
+                                "description": "Determines if it is a coupon, which is interpreted as tax-free payment",
+                                "type": "string"
+                            },
+                            "TaxAmount": {
+                                "description": "The tax amount in the total price",
+                                "format": "double",
+                                "type": "number"
+                            },
+                            "TaxIndex": {
+                                "description": "The tax index.",
+                                "format": "int32",
+                                "type": "integer"
+                            },
+                            "TotalPrice": {
+                                "description": "The total price (unit price * quantity)",
+                                "format": "double",
+                                "type": "number"
+                            },
+                            "TransactionId": {
+                                "description": "Id of the individual transaction. Only required by Ebay to detect aggregated orders",
+                                "type": "string"
+                            },
+                            "UnrebatedTotalPrice": {
+                                "description": "Is just used for the billbee api",
+                                "format": "double",
+                                "type": "number"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "OrderNumber": {
+                    "description": "Order number of the order in the external system (marketplace)",
+                    "type": "string"
+                },
+                "PaidAmount": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "PayedAt": {
+                    "description": "The date on which the order was paid",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "PaymentInstruction": {
+                    "description": "A textfield optionaly filled with a payment instruction text for printout on the invoice (z.B. Ebay Kauf auf Rechnung)",
+                    "type": "string"
+                },
+                "PaymentMethod": {
+                    "description": "The payment method",
+                    "enum": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        6,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47,
+                        48,
+                        49,
+                        50,
+                        51,
+                        52,
+                        53,
+                        54,
+                        55,
+                        56,
+                        57,
+                        58,
+                        59,
+                        60,
+                        61,
+                        62,
+                        63,
+                        64,
+                        65,
+                        66,
+                        67,
+                        68,
+                        69,
+                        70,
+                        71,
+                        72,
+                        73,
+                        74,
+                        75,
+                        76,
+                        77,
+                        78,
+                        79,
+                        80,
+                        81,
+                        82,
+                        83,
+                        84,
+                        85,
+                        86,
+                        87,
+                        88,
+                        89,
+                        90,
+                        91,
+                        92,
+                        93,
+                        94,
+                        95,
+                        96,
+                        97,
+                        98,
+                        99,
+                        100,
+                        101
+                    ],
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "PaymentReference": {
+                    "description": "A payment reference",
+                    "type": "string"
+                },
+                "PaymentTransactionId": {
+                    "description": "The id of the payment transaction. For example the transaction id of PayPal payment",
+                    "type": "string"
+                },
+                "RebateDifference": {
+                    "format": "double",
+                    "readOnly": true,
+                    "type": "number"
+                },
+                "Seller": {
+                    "properties": {
+                        "BillbeeShopId": {
+                            "description": "The Billbee internal id of the shop connection",
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "BillbeeShopName": {
+                            "description": "The name of shop connection in Billbee",
+                            "type": "string"
+                        },
+                        "Email": {
+                            "description": "The email address of this customer",
+                            "type": "string"
+                        },
+                        "FirstName": {
+                            "description": "The first name of this customer",
+                            "type": "string"
+                        },
+                        "FullName": {
+                            "description": "The full name (\"firstname lastname\") of this customer",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "Id": {
+                            "description": "The Billbee internal id of this customer",
+                            "type": "string"
+                        },
+                        "LastName": {
+                            "description": "The last name of this customer",
+                            "type": "string"
+                        },
+                        "Nick": {
+                            "description": "The nick name (if available) from the original system",
+                            "type": "string"
+                        },
+                        "Platform": {
+                            "description": "The name of the platform from which this customer originated",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "SellerComment": {
+                    "description": "An internal seller comment",
+                    "type": "string"
+                },
+                "ShipWeightKg": {
+                    "description": "The total weight of the shipment(s)",
+                    "format": "double",
+                    "type": "number"
+                },
+                "ShippedAt": {
+                    "description": "The date on which the order was shipped",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "ShippingAddress": {
+                    "description": "The delivery address",
+                    "properties": {
+                        "BillbeeId": {
+                            "description": "The Billbee internal ID of the address record",
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "City": {
+                            "description": "The city",
+                            "type": "string"
+                        },
+                        "Comment": {
+                            "description": "A internal comment to this address",
+                            "type": "string"
+                        },
+                        "Company": {
+                            "description": "The company name",
+                            "type": "string"
+                        },
+                        "Country": {
+                            "description": "The name of the country",
+                            "type": "string"
+                        },
+                        "CountryISO2": {
+                            "description": "The 2-letter country code",
+                            "type": "string"
+                        },
+                        "Email": {
+                            "description": "The email address",
+                            "type": "string"
+                        },
+                        "FirstName": {
+                            "description": "The first name",
+                            "type": "string"
+                        },
+                        "HouseNumber": {
+                            "description": "The house number",
+                            "type": "string"
+                        },
+                        "Id": {
+                            "description": "The id of the address in the external system",
+                            "type": "string"
+                        },
+                        "LastName": {
+                            "description": "The last name",
+                            "type": "string"
+                        },
+                        "Line2": {
+                            "description": "The second address line",
+                            "type": "string"
+                        },
+                        "Line3": {
+                            "description": "The third address line",
+                            "type": "string"
+                        },
+                        "NameAddition": {
+                            "description": "A addition to the address (e.g. Apartment 2, Back door)",
+                            "type": "string"
+                        },
+                        "Phone": {
+                            "description": "The phone number",
+                            "type": "string"
+                        },
+                        "Salutation": {
+                            "description": "The salutation",
+                            "enum": [
+                                0,
+                                1,
+                                2,
+                                3,
+                                4
+                            ],
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "State": {
+                            "description": "The name of the state",
+                            "type": "string"
+                        },
+                        "Street": {
+                            "description": "The street excl. the housenumber",
+                            "type": "string"
+                        },
+                        "Title": {
+                            "description": "An internal identifier for this address",
+                            "type": "string"
+                        },
+                        "Zip": {
+                            "description": "The postal code",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "ShippingCost": {
+                    "description": "The shipping cost",
+                    "format": "double",
+                    "type": "number"
+                },
+                "ShippingIds": {
+                    "description": "The shipments of the order",
+                    "items": {
+                        "description": "Represents a single shipment.",
+                        "properties": {
+                            "Created": {
+                                "description": "The creation date",
+                                "format": "date-time",
+                                "type": "string"
+                            },
+                            "Shipper": {
+                                "description": "The name of the shipping provider",
+                                "type": "string"
+                            },
+                            "ShippingId": {
+                                "description": "The id of this shipment",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "ShippingProfileId": {
+                    "description": "Internal Id for the shipping profile for that order",
+                    "type": "string"
+                },
+                "ShippingProfileName": {
+                    "description": "Display Name of Shipping profile, if available",
+                    "type": "string"
+                },
+                "ShippingProviderId": {
+                    "description": "Internal Id for the used shipping provider",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "ShippingProviderName": {
+                    "description": "The Name for of used shipping provider",
+                    "type": "string"
+                },
+                "ShippingProviderProductId": {
+                    "description": "Internal Id for the used shipping product",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "ShippingProviderProductName": {
+                    "description": "The Name of the used shipping product",
+                    "type": "string"
+                },
+                "ShippingServices": {
+                    "description": "Additional services for the shipment",
+                    "items": {
+                        "properties": {
+                            "DisplayName": {
+                                "readOnly": true,
+                                "type": "string"
+                            },
+                            "DisplayValue": {
+                                "readOnly": true,
+                                "type": "string"
+                            },
+                            "PossibleValueLists": {
+                                "items": {
+                                    "properties": {
+                                        "key": {
+                                            "type": "string"
+                                        },
+                                        "value": {
+                                            "items": {
+                                                "properties": {
+                                                    "key": {
+                                                        "format": "int32",
+                                                        "type": "integer"
+                                                    },
+                                                    "value": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "type": "array"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "readOnly": true,
+                                "type": "array"
+                            },
+                            "RequiresUserInput": {
+                                "readOnly": true,
+                                "type": "boolean"
+                            },
+                            "ServiceName": {
+                                "readOnly": true,
+                                "type": "string"
+                            },
+                            "typeName": {
+                                "readOnly": true,
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "State": {
+                    "description": "The current state of the order",
+                    "enum": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15
+                    ],
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Tags": {
+                    "description": "The Tags of the order",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "TaxRate1": {
+                    "description": "The regular tax rate",
+                    "format": "double",
+                    "type": "number"
+                },
+                "TaxRate2": {
+                    "description": "The reduced tax rate",
+                    "format": "double",
+                    "type": "number"
+                },
+                "TotalCost": {
+                    "description": "The total cost excluding shipping cost",
+                    "format": "double",
+                    "type": "number"
+                },
+                "UpdatedAt": {
+                    "description": "The date on which the order was last updated",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "VatId": {
+                    "description": "The customers vat id",
+                    "type": "string"
+                },
+                "VatMode": {
+                    "description": "The vat mode of the order",
+                    "enum": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

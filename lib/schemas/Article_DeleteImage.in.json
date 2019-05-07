@@ -1,0 +1,10 @@
+{
+    "type": "object",
+    "properties": {
+        "imageId": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        }
+    }
+}

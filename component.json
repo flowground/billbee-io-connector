@@ -1,0 +1,1451 @@
+{
+    "title": "Billbee",
+    "description": "Documentation of the Billbee REST API to connect a Billbee account to external aplications.\n\n## Endpoint\n\nThe Billbee API endpoint base url is https://app.billbee.io/api/v1 \n\n## Activation\n\nYou have to enable the API in the settings of your Billbee account. In addition you need a Billbee API Key identifying the application you develop. To get an API key, send a mail to support@billbee.io and send us a short note about what you are building.\n\n## Authorization & security\n\nBecause you can access private data with the Billbee API, every request has to be sent over https and must\n\n* Contain a valid API Key identifying the application/developer. It has to be sent as the HTTP header X-Billbee-Api-Key\n* Contain a valid user login with billbee username and api password in form of a basic auth HTTP header\n\n## Throttling\n\nEach endpoint has a throttle of max 2 requests per second per combination of API Key and Billbee user.\n\nWhen you exceed these 2 calls, the API will return a HTTP 429 status code\n\n",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/billbee.io/v1/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://app.billbee.io/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "X-Billbee-Api-Key": {
+                "label": "X-Billbee-Api-Key (X-Billbee-Api-Key)",
+                "viewClass": "TextFieldView",
+                "note": "To identify the app developer, each API request has do contain a valid API Key in the HTTP header X-Billbee-Api-Key."
+            },
+            "username": {
+                "label": "Username (basic)",
+                "viewClass": "TextFieldView",
+                "note": "To authenticate an API request, the Billbee username/email and an API password have to be provided as a BasicAuth header."
+            },
+            "password": {
+                "label": "Password (basic)",
+                "viewClass": "TextFieldView",
+                "note": "To authenticate an API request, the Billbee username/email and an API password have to be provided as a BasicAuth header."
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "AutomaticProvisioning_CreateAccount": {
+            "main": "./lib/actions/AutomaticProvisioning_CreateAccount.js",
+            "title": "Creates a new Billbee user account with the data passed",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AutomaticProvisioning_CreateAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "AutomaticProvisioning_TermsInfo": {
+            "main": "./lib/actions/AutomaticProvisioning_TermsInfo.js",
+            "title": "Returns infos about Billbee terms and conditions",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AutomaticProvisioning_TermsInfo.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CloudStorageApi_GetList": {
+            "main": "./lib/actions/CloudStorageApi_GetList.js",
+            "title": "Gets a list of all connected cloud storage devices",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CloudStorageApi_GetList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Customer_GetAll": {
+            "main": "./lib/actions/Customer_GetAll.js",
+            "title": "Get a list of all customers",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Customer_GetAll.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Customer_Create": {
+            "main": "./lib/actions/Customer_Create.js",
+            "title": "Creates a new customer",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Customer_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Customer_GetCustomerAddress": {
+            "main": "./lib/actions/Customer_GetCustomerAddress.js",
+            "title": "Queries a single address from a customer",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Customer_GetCustomerAddress.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Customer_PatchAddress": {
+            "main": "./lib/actions/Customer_PatchAddress.js",
+            "title": "Updates one or more fields of an address",
+            "description": "Id and CustomerId cannot be changed",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Customer_PatchAddress.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Customer_UpdateAddress": {
+            "main": "./lib/actions/Customer_UpdateAddress.js",
+            "title": "Updates all fields of an address",
+            "description": "Id and CustomerId cannot be changed. Fields you do not send will become empty.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Customer_UpdateAddress.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Customer_GetOne": {
+            "main": "./lib/actions/Customer_GetOne.js",
+            "title": "Queries a single customer by id",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Customer_GetOne.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Customer_Update": {
+            "main": "./lib/actions/Customer_Update.js",
+            "title": "Updates a customer by id",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Customer_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Customer_GetCustomerAddresses": {
+            "main": "./lib/actions/Customer_GetCustomerAddresses.js",
+            "title": "Queries a list of addresses from a customer",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Customer_GetCustomerAddresses.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Customer_AddCustomerAddress": {
+            "main": "./lib/actions/Customer_AddCustomerAddress.js",
+            "title": "Adds a new address to a customer",
+            "description": "Id and  CustomerId will be ignored in model. If Id is set, the addition will be stopped.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Customer_AddCustomerAddress.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Customer_GetCustomerOrders": {
+            "main": "./lib/actions/Customer_GetCustomerOrders.js",
+            "title": "Queries a list of orders from a customer",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Customer_GetCustomerOrders.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "EnumApi_GetOrderStates": {
+            "main": "./lib/actions/EnumApi_GetOrderStates.js",
+            "title": "Returns a list with all defined orderstates",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/EnumApi_GetOrderStates.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "EnumApi_GetPaymentTypes": {
+            "main": "./lib/actions/EnumApi_GetPaymentTypes.js",
+            "title": "Returns a list with all defined paymenttypes",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/EnumApi_GetPaymentTypes.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "EventApi_GetList": {
+            "main": "./lib/actions/EventApi_GetList.js",
+            "title": "Get a list of all events optionally filtered by date",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/EventApi_GetList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "LayoutApi_GetList": {
+            "main": "./lib/actions/LayoutApi_GetList.js",
+            "title": "LayoutApi_GetList",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/LayoutApi_GetList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "OrderApi_GetList": {
+            "main": "./lib/actions/OrderApi_GetList.js",
+            "title": "Get a list of all orders optionally filtered by date",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/OrderApi_GetList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "OrderApi_PostNewOrder": {
+            "main": "./lib/actions/OrderApi_PostNewOrder.js",
+            "title": "Creates a new order in the Billbee account",
+            "description": "To create an order POST an JSON object to the orders endpoint with the shown properties. \r\nNot all properties are required.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/OrderApi_PostNewOrder.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "OrderApi_CreateDeliveryNote": {
+            "main": "./lib/actions/OrderApi_CreateDeliveryNote.js",
+            "title": "Create an delivery note for an existing order",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/OrderApi_CreateDeliveryNote.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "OrderApi_CreateInvoice": {
+            "main": "./lib/actions/OrderApi_CreateInvoice.js",
+            "title": "Create an invoice for an existing order",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/OrderApi_CreateInvoice.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "OrderApi_GetPatchableFields": {
+            "main": "./lib/actions/OrderApi_GetPatchableFields.js",
+            "title": "Returns a list of fields which can be updated with the orders/{id} patch call",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/OrderApi_GetPatchableFields.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "OrderApi_Find": {
+            "main": "./lib/actions/OrderApi_Find.js",
+            "title": "Find a single order by its external id (order number)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/OrderApi_Find.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "OrderApi_GetByExtRef": {
+            "main": "./lib/actions/OrderApi_GetByExtRef.js",
+            "title": "Get a single order by its internal billbee id",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/OrderApi_GetByExtRef.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "OrderApi_GetInvoiceList": {
+            "main": "./lib/actions/OrderApi_GetInvoiceList.js",
+            "title": "Get a list of all invoices optionally filtered by date",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/OrderApi_GetInvoiceList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "OrderApi_Get": {
+            "main": "./lib/actions/OrderApi_Get.js",
+            "title": "Get a single order by its internal billbee id",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/OrderApi_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "OrderApi_PatchOrder": {
+            "main": "./lib/actions/OrderApi_PatchOrder.js",
+            "title": "Updates one or more fields of an order",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/OrderApi_PatchOrder.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "OrderApi_UpdateState": {
+            "main": "./lib/actions/OrderApi_UpdateState.js",
+            "title": "Changes the main state of a single order",
+            "description": "### REMARKS ###\r\nUse this call to change the state of an order to i.e. paid or sent.\r\n\r\nThe state is transfered to the external shop/marketplace if configured.\r\nThis is the list of known states:\r\n- 1: ordered\r\n- 2: confirmed\r\n- 3: paid\r\n- 4: shipped\r\n- 5: reclamation\r\n- 6: deleted\r\n- 7: closed\r\n- 8: canceled\r\n- 9: archived\r\n- 10: not used\r\n- 11: demand note 1\r\n- 12: demand note 2\r\n- 13: packed\r\n- 14: offered\r\n- 15: payment reminder",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/OrderApi_UpdateState.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "OrderApi_SendMessage": {
+            "main": "./lib/actions/OrderApi_SendMessage.js",
+            "title": "Sends a message to the buyer",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/OrderApi_SendMessage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "OrderApi_AddShipment": {
+            "main": "./lib/actions/OrderApi_AddShipment.js",
+            "title": "Add a shipment to a given order",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/OrderApi_AddShipment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "OrderApi_TagsCreate": {
+            "main": "./lib/actions/OrderApi_TagsCreate.js",
+            "title": "Attach one or more tags to an order",
+            "description": "When a tag is already attached, it is ignored. Tags are not case sensitive.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/OrderApi_TagsCreate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "OrderApi_TagsUpdate": {
+            "main": "./lib/actions/OrderApi_TagsUpdate.js",
+            "title": "Updates/Sets the tags attached to an order",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/OrderApi_TagsUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "OrderApi_TriggerEvent": {
+            "main": "./lib/actions/OrderApi_TriggerEvent.js",
+            "title": "Triggers a rule event",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/OrderApi_TriggerEvent.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Article_GetList": {
+            "main": "./lib/actions/Article_GetList.js",
+            "title": "Get a list of all products",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Article_GetList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Article_CreateArticle": {
+            "main": "./lib/actions/Article_CreateArticle.js",
+            "title": "Creates a new product",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Article_CreateArticle.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Article_GetPatchableFields": {
+            "main": "./lib/actions/Article_GetPatchableFields.js",
+            "title": "Returns a list of fields which can be updated with the patch call",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Article_GetPatchableFields.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Article_GetCategory": {
+            "main": "./lib/actions/Article_GetCategory.js",
+            "title": "GEts a list of all defined categories",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Article_GetCategory.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Article_GetCustomFields": {
+            "main": "./lib/actions/Article_GetCustomFields.js",
+            "title": "Queries a list of all custom fields",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Article_GetCustomFields.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Article_GetCustomField": {
+            "main": "./lib/actions/Article_GetCustomField.js",
+            "title": "Queries a single custom field",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Article_GetCustomField.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Article_DeleteImages": {
+            "main": "./lib/actions/Article_DeleteImages.js",
+            "title": "Delete multiple images by id",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Article_DeleteImages.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Article_DeleteImage": {
+            "main": "./lib/actions/Article_DeleteImage.js",
+            "title": "Deletes a single image by id",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Article_DeleteImage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Article_GetImage": {
+            "main": "./lib/actions/Article_GetImage.js",
+            "title": "Returns a single image by id",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Article_GetImage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Article_GetReservedAmount": {
+            "main": "./lib/actions/Article_GetReservedAmount.js",
+            "title": "Queries the reserved amount for a single article by id or by sku",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Article_GetReservedAmount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Article_UpdateStock": {
+            "main": "./lib/actions/Article_UpdateStock.js",
+            "title": "Update the stock qty of an article",
+            "description": "The article is specified by sku. You have to send the absolute value for the current stock",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Article_UpdateStock.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Article_UpdateStockCode": {
+            "main": "./lib/actions/Article_UpdateStockCode.js",
+            "title": "Update the stock code of an article",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Article_UpdateStockCode.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Article_UpdateStockMultiple": {
+            "main": "./lib/actions/Article_UpdateStockMultiple.js",
+            "title": "Update the stock qty for multiple articles at once",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Article_UpdateStockMultiple.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Article_GetArticle": {
+            "main": "./lib/actions/Article_GetArticle.js",
+            "title": "Queries a single article by id or by sku",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Article_GetArticle.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Article_PatchArticle": {
+            "main": "./lib/actions/Article_PatchArticle.js",
+            "title": "Updates one or more fields of a product",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Article_PatchArticle.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Article_GetImages": {
+            "main": "./lib/actions/Article_GetImages.js",
+            "title": "Returns a list of all images of the product",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Article_GetImages.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Article_PutImages": {
+            "main": "./lib/actions/Article_PutImages.js",
+            "title": "Add multiple images to a product or replace the product images by the given images",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Article_PutImages.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Article_DeleteImageFromProduct": {
+            "main": "./lib/actions/Article_DeleteImageFromProduct.js",
+            "title": "Deletes a single image from a product",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Article_DeleteImageFromProduct.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Article_GetImageFromProduct": {
+            "main": "./lib/actions/Article_GetImageFromProduct.js",
+            "title": "Returns a single image by id",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Article_GetImageFromProduct.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Article_PutImage": {
+            "main": "./lib/actions/Article_PutImage.js",
+            "title": "Add or update an existing image of a product",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Article_PutImage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Search_Search": {
+            "main": "./lib/actions/Search_Search.js",
+            "title": "Search for products, customers and orders.\r\nType can be \"order\", \"product\" and / or \"customer\"\r\nTerm can contains lucene query syntax",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Search_Search.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Shipment_GetPing": {
+            "main": "./lib/actions/Shipment_GetPing.js",
+            "title": "Shipment_GetPing",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Shipment_GetPing.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Shipment_PostShipment": {
+            "main": "./lib/actions/Shipment_PostShipment.js",
+            "title": "Creates a new shipment with the selected Shippingprovider",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Shipment_PostShipment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Shipment_GetList": {
+            "main": "./lib/actions/Shipment_GetList.js",
+            "title": "Get a list of all shipments optionally filtered by date. All parameters are optional.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Shipment_GetList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Shipment_GetShippingproviders": {
+            "main": "./lib/actions/Shipment_GetShippingproviders.js",
+            "title": "Query all defined shipping providers",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Shipment_GetShippingproviders.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Shipment_ShipWithLabel": {
+            "main": "./lib/actions/Shipment_ShipWithLabel.js",
+            "title": "Creates a shipment for an order in billbee",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Shipment_ShipWithLabel.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "WebHookManagement_DeleteAll": {
+            "main": "./lib/actions/WebHookManagement_DeleteAll.js",
+            "title": "Deletes all existing WebHook registrations.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/WebHookManagement_DeleteAll.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "WebHookManagement_Get": {
+            "main": "./lib/actions/WebHookManagement_Get.js",
+            "title": "Gets all registered WebHooks for a given user.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/WebHookManagement_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "WebHookManagement_Post": {
+            "main": "./lib/actions/WebHookManagement_Post.js",
+            "title": "Registers a new WebHook for a given user.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/WebHookManagement_Post.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "WebHookManagement_GetFilters": {
+            "main": "./lib/actions/WebHookManagement_GetFilters.js",
+            "title": "Returns a list of all known filters you can use to register webhooks",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/WebHookManagement_GetFilters.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "WebHookManagement_Delete": {
+            "main": "./lib/actions/WebHookManagement_Delete.js",
+            "title": "Deletes an existing WebHook registration.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/WebHookManagement_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "WebHookManagement_Lookup": {
+            "main": "./lib/actions/WebHookManagement_Lookup.js",
+            "title": "Looks up a registered WebHook with the given {id} for a given user.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/WebHookManagement_Lookup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "WebHookManagement_Put": {
+            "main": "./lib/actions/WebHookManagement_Put.js",
+            "title": "Updates an existing WebHook registration.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/WebHookManagement_Put.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,43 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        },
+        "requestBody": {
+            "description": "Data of the shipment to be created",
+            "properties": {
+                "CarrierId": {
+                    "description": "Optional the id of a shipping carrier that should be assigend to the shipment\r\nWill override the carrier from the shipment product\r\n0: other,\r\n1: dhlExpress,\r\n2: dhl,\r\n3: hermes,\r\n4: dpd,\r\n5: ups,\r\n6: gls,\r\n7: dpag,\r\n8: OePost,\r\n9: fedex,\r\n10: generalOvernight,\r\n11: tnt,\r\n12: liefery,\r\n13: iloxx,\r\n14: parcel_one",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Comment": {
+                    "description": "Optional a text stored with the shipment",
+                    "type": "string"
+                },
+                "OrderId": {
+                    "description": "Optional a differing order number of the shipment if available",
+                    "type": "string"
+                },
+                "ShippingId": {
+                    "description": "The id of the shipment (Sendungsnummer/trackingid)",
+                    "type": "string"
+                },
+                "ShippingProviderId": {
+                    "description": "Optional the id of a shipping provider existing in the billbee account that should be assigned to the shipment",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "ShippingProviderProductId": {
+                    "description": "Optional the id of a shipping provider product that should be assigend to the shipment",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,44 @@
+{
+    "type": "object",
+    "properties": {
+        "productId": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        },
+        "imageId": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        },
+        "requestBody": {
+            "properties": {
+                "ArticleId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Id": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "IsDefault": {
+                    "type": "boolean"
+                },
+                "Position": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "ThumbPathExt": {
+                    "type": "string"
+                },
+                "ThumbUrl": {
+                    "type": "string"
+                },
+                "Url": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

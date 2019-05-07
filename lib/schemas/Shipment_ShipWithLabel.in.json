@@ -1,0 +1,65 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "ChangeStateToSend": {
+                    "description": "Optional parameter to automatically change the orderstate to sent after creating the shipment",
+                    "type": "boolean"
+                },
+                "ClientReference": {
+                    "description": "Optional specify a reference text to be included on the label. Works not with all carriers",
+                    "type": "string"
+                },
+                "Dimension": {
+                    "description": "Option specify the dimensions of the package in cm",
+                    "properties": {
+                        "height": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "length": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "width": {
+                            "format": "double",
+                            "type": "number"
+                        }
+                    },
+                    "type": "object"
+                },
+                "OrderId": {
+                    "description": "The Billbee internal id of the order to ship",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "PrinterName": {
+                    "description": "Optional the name of a connected cloudprinter to send the label to",
+                    "type": "string"
+                },
+                "ProductId": {
+                    "description": "the id of the shipping provider product to be used",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "ProviderId": {
+                    "description": "The id of the provider. You can query all providers with the shippingproviders endpoint",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "ShipDate": {
+                    "description": "Optional specify the shipdate to be transmitted to the carrier",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "WeightInGram": {
+                    "description": "Optional the shipments weight in gram to override the calculated weight",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

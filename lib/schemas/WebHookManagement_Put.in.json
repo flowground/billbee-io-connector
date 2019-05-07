@@ -1,0 +1,53 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "Description": {
+                    "type": "string"
+                },
+                "Filters": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "readOnly": true,
+                    "type": "array"
+                },
+                "Headers": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "readOnly": true,
+                    "type": "object"
+                },
+                "Id": {
+                    "type": "string"
+                },
+                "IsPaused": {
+                    "type": "boolean"
+                },
+                "Properties": {
+                    "additionalProperties": {
+                        "type": "object"
+                    },
+                    "readOnly": true,
+                    "type": "object"
+                },
+                "Secret": {
+                    "type": "string"
+                },
+                "WebHookUri": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "WebHookUri"
+            ],
+            "type": "object"
+        }
+    }
+}

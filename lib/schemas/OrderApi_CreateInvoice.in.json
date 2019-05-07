@@ -1,0 +1,24 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        },
+        "includeInvoicePdf": {
+            "required": false,
+            "type": "boolean"
+        },
+        "templateId": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "sendToCloudId": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        }
+    }
+}

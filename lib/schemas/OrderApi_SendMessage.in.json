@@ -1,0 +1,57 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        },
+        "requestBody": {
+            "properties": {
+                "AlternativeMail": {
+                    "type": "string"
+                },
+                "Body": {
+                    "items": {
+                        "properties": {
+                            "LanguageCode": {
+                                "type": "string"
+                            },
+                            "Text": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "SendMode": {
+                    "enum": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4
+                    ],
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Subject": {
+                    "items": {
+                        "properties": {
+                            "LanguageCode": {
+                                "type": "string"
+                            },
+                            "Text": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,206 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "ClientReference": {
+                    "description": "Optional specify a text to be included on the label. Not possible with all carriers",
+                    "type": "string"
+                },
+                "Content": {
+                    "description": "Optional specify a text describing the content of the shipment. Used for export shipments",
+                    "type": "string"
+                },
+                "CustomerNumber": {
+                    "description": "Not used anymore",
+                    "type": "string"
+                },
+                "Dimension": {
+                    "properties": {
+                        "height": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "length": {
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "width": {
+                            "format": "double",
+                            "type": "number"
+                        }
+                    },
+                    "type": "object"
+                },
+                "OrderCurrencyCode": {
+                    "description": "The Currency if the ordersum",
+                    "type": "string"
+                },
+                "OrderSum": {
+                    "description": "The value of the shipments content",
+                    "format": "double",
+                    "type": "number"
+                },
+                "PrinterName": {
+                    "description": "The name of a connected Cloudprinter to sent the label to",
+                    "type": "string"
+                },
+                "ProductCode": {
+                    "description": "The productcode to be used when creating the shipment. Values depends on the carrier used",
+                    "type": "string"
+                },
+                "ProviderName": {
+                    "description": "The name of the provider as specified in the billbee account",
+                    "type": "string"
+                },
+                "ReceiverAddress": {
+                    "description": "The address of the receiver",
+                    "properties": {
+                        "AddressAddition": {
+                            "type": "string"
+                        },
+                        "City": {
+                            "type": "string"
+                        },
+                        "Company": {
+                            "type": "string"
+                        },
+                        "CountryCode": {
+                            "type": "string"
+                        },
+                        "CountryCodeISO3": {
+                            "type": "string"
+                        },
+                        "Email": {
+                            "type": "string"
+                        },
+                        "FirstName": {
+                            "type": "string"
+                        },
+                        "FullName": {
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "FullStreet": {
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "Housenumber": {
+                            "type": "string"
+                        },
+                        "IsExportCountry": {
+                            "type": "boolean"
+                        },
+                        "LastName": {
+                            "type": "string"
+                        },
+                        "Name2": {
+                            "type": "string"
+                        },
+                        "State": {
+                            "type": "string"
+                        },
+                        "Street": {
+                            "type": "string"
+                        },
+                        "Telephone": {
+                            "type": "string"
+                        },
+                        "Zip": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Services": {
+                    "description": "A list of services to be used when creating the shipment",
+                    "items": {
+                        "properties": {
+                            "DisplayName": {
+                                "readOnly": true,
+                                "type": "string"
+                            },
+                            "DisplayValue": {
+                                "readOnly": true,
+                                "type": "string"
+                            },
+                            "PossibleValueLists": {
+                                "items": {
+                                    "properties": {
+                                        "key": {
+                                            "type": "string"
+                                        },
+                                        "value": {
+                                            "items": {
+                                                "properties": {
+                                                    "key": {
+                                                        "format": "int32",
+                                                        "type": "integer"
+                                                    },
+                                                    "value": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "type": "array"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "readOnly": true,
+                                "type": "array"
+                            },
+                            "RequiresUserInput": {
+                                "readOnly": true,
+                                "type": "boolean"
+                            },
+                            "ServiceName": {
+                                "readOnly": true,
+                                "type": "string"
+                            },
+                            "typeName": {
+                                "readOnly": true,
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "ShipDate": {
+                    "description": "Optional overwrite the shipdate to be transferred to the carrier",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "WeightInGram": {
+                    "description": "Optional specify the weight in gram of the shipment",
+                    "format": "double",
+                    "type": "number"
+                },
+                "shippingCarrier": {
+                    "enum": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14
+                    ],
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

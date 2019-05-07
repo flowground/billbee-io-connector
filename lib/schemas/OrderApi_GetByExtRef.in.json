@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "extRef": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

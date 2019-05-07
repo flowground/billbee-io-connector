@@ -1,0 +1,76 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        },
+        "requestBody": {
+            "properties": {
+                "AddressAddition": {
+                    "type": "string"
+                },
+                "AddressType": {
+                    "enum": [
+                        1,
+                        2
+                    ],
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "City": {
+                    "type": "string"
+                },
+                "Company": {
+                    "type": "string"
+                },
+                "CountryCode": {
+                    "type": "string"
+                },
+                "CustomerId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Email": {
+                    "type": "string"
+                },
+                "Fax": {
+                    "type": "string"
+                },
+                "FirstName": {
+                    "type": "string"
+                },
+                "Housenumber": {
+                    "type": "string"
+                },
+                "Id": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "LastName": {
+                    "type": "string"
+                },
+                "Name2": {
+                    "type": "string"
+                },
+                "State": {
+                    "type": "string"
+                },
+                "Street": {
+                    "type": "string"
+                },
+                "Tel1": {
+                    "type": "string"
+                },
+                "Tel2": {
+                    "type": "string"
+                },
+                "Zip": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

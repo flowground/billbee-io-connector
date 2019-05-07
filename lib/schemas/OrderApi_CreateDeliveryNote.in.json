@@ -1,0 +1,19 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        },
+        "includePdf": {
+            "required": false,
+            "type": "boolean"
+        },
+        "sendToCloudId": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        }
+    }
+}

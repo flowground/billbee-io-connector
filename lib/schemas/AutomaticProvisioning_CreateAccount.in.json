@@ -1,0 +1,96 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "Data used to create a new Billbee user account",
+            "properties": {
+                "AcceptTerms": {
+                    "description": "Set to true, if the user has accepted the Billbee terms &amp; conditions",
+                    "type": "boolean"
+                },
+                "Address": {
+                    "description": "Gets or sets the invoice address of the Billbee user",
+                    "properties": {
+                        "Address1": {
+                            "type": "string"
+                        },
+                        "Address2": {
+                            "type": "string"
+                        },
+                        "City": {
+                            "type": "string"
+                        },
+                        "Company": {
+                            "type": "string"
+                        },
+                        "Country": {
+                            "description": "The ISO2 country code of the users country",
+                            "type": "string"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "VatId": {
+                            "type": "string"
+                        },
+                        "Zip": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "AffiliateCouponCode": {
+                    "description": "Specifies an billbee affiliate code to attach to the user",
+                    "type": "string"
+                },
+                "DefaultCurrrency": {
+                    "description": "Optionally specify the default currency of the user",
+                    "type": "string"
+                },
+                "DefaultVatIndex": {
+                    "description": "Optionally specify the default vat index of the user",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "DefaultVatMode": {
+                    "description": "Optionally specify the default vat mode of the user",
+                    "enum": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "EMail": {
+                    "description": "The Email address of the user to create",
+                    "type": "string"
+                },
+                "Newsletter": {
+                    "description": "Gets or sets if the user is interested in the Billbee newsletter",
+                    "type": "boolean"
+                },
+                "Password": {
+                    "type": "string"
+                },
+                "Vat1Rate": {
+                    "description": "Optionally specify the vat1 (normal) rate of the user",
+                    "format": "double",
+                    "type": "number"
+                },
+                "Vat2Rate": {
+                    "description": "Optionally specify the vat2 (reduced) rate of the user",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "EMail"
+            ],
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,78 @@
+{
+    "type": "object",
+    "properties": {
+        "minOrderDate": {
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+        },
+        "maxOrderDate": {
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+        },
+        "page": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "pageSize": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "shopId": {
+            "required": false,
+            "type": "array",
+            "items": {
+                "format": "int32",
+                "type": "integer"
+            }
+        },
+        "orderStateId": {
+            "required": false,
+            "type": "array",
+            "items": {
+                "format": "int32",
+                "type": "integer"
+            }
+        },
+        "tag": {
+            "required": false,
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "minimumBillBeeOrderId": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "modifiedAtMin": {
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+        },
+        "modifiedAtMax": {
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+        },
+        "articleTitleSource": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "enum": [
+                0,
+                1,
+                2,
+                3
+            ]
+        },
+        "excludeTags": {
+            "required": false,
+            "type": "boolean"
+        }
+    }
+}

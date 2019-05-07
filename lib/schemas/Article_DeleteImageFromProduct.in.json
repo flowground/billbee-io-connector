@@ -1,0 +1,15 @@
+{
+    "type": "object",
+    "properties": {
+        "productId": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        },
+        "imageId": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        }
+    }
+}

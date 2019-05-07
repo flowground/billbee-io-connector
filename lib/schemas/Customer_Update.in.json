@@ -1,0 +1,46 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        },
+        "requestBody": {
+            "properties": {
+                "Email": {
+                    "type": "string"
+                },
+                "Id": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "LanguageId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "Number": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "PriceGroupId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "Tel1": {
+                    "type": "string"
+                },
+                "Tel2": {
+                    "type": "string"
+                },
+                "VatId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

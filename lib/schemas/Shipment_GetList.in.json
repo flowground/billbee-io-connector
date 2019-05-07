@@ -1,0 +1,40 @@
+{
+    "type": "object",
+    "properties": {
+        "page": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "pageSize": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "createdAtMin": {
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+        },
+        "createdAtMax": {
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+        },
+        "orderId": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "minimumShipmentId": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "shippingProviderId": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        }
+    }
+}
